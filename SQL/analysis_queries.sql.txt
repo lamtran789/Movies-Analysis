@@ -49,3 +49,32 @@ SELECT
 	*
 FROM
 	FINAL_DATA
+
+//Most of changes were after the CTE. Here is I calculated performances such as highest revenue, most popular, and biggest rating.
+
+
+SELECT
+	*
+FROM
+	FINAL_DATA
+Order by
+	Popularity Desc
+
+//Case when to determine levels of popularity in relationship with revenue, excluding null values.
+
+SELECT
+	POPULARITY,
+	REVENUE,
+	TITLE,
+	CASE
+		WHEN POPULARITY > 15 THEN 'very popular'
+		WHEN POPULARITY > 10 THEN 'popular'
+		WHEN POPULARITY > 5 THEN 'not very popular'
+		ELSE 'very unpopular'
+	END AS POPULARITY_SCALE
+FROM
+	FINAL_DATA
+WHERE
+	REVENUE <> 0
+ORDER BY
+	POPULARITY DESC
