@@ -1,5 +1,6 @@
 // Had to group ratings_table --> links_table <-- movies_metadata. Also decided to keep movie per row with the averages out of 5 for each movie. Limit to 100 so queries run smoother and main data still represented.
 
+
 with group_ratings as (
 select moveid, avg(rating) as avg_rating
 from ratings
@@ -13,7 +14,9 @@ inner join movies m
 on l.imbdid=m.imdb_id
 limit 100
 
+
 // Placed this entire table into another CTE to make it easier to analyze the data. Also unselected some ID columns to make the dataset cleaner and more focused on results. Also formatted the query to make it look cleaner and easier to read.
+
 
 WITH
 	FINAL_DATA AS (
@@ -50,7 +53,8 @@ SELECT
 FROM
 	FINAL_DATA
 
-//Most of changes were after the CTE. Here is I calculated performances such as highest revenue, most popular, and biggest rating.
+
+//Most of changes were after the CTE. Here is where I calculated performances such as highest revenue, most popular, and biggest rating.
 
 
 SELECT
@@ -60,7 +64,9 @@ FROM
 Order by
 	Popularity Desc
 
+
 //Case when to determine levels of popularity in relationship with revenue, excluding null values.
+
 
 SELECT
 	POPULARITY,
@@ -78,3 +84,42 @@ WHERE
 	REVENUE <> 0
 ORDER BY
 	POPULARITY DESC
+
+
+// Final query to highlight all data where revenue isn't 0 to send to Tableau
+
+
+WITH
+	FINAL_DATA AS (
+		WITH
+			GROUP_RATINGS AS (
+				SELECT
+					MOVEID,
+					AVG(RATING) AS AVG_RATING
+				FROM
+					RATINGS
+				GROUP BY
+					MOVEID
+			)
+		SELECT
+			L.MOVIEID,
+			GR.AVG_RATING,
+			M.BUDGET,
+			M.POPULARITY,
+			M.RELEASE,
+			M.REVENUE,
+			M.RUNTIME,
+			M.TITLE,
+			M.VOTE_AVG,
+			M.VOTE_COUNT
+		FROM
+			LINKS L
+			INNER JOIN GROUP_RATINGS GR ON GR.MOVEID = L.MOVIEID
+			INNER JOIN MOVIES M ON L.IMBDID = M.IMDB_ID
+	)
+SELECT
+	*
+FROM
+	FINAL_DATA
+WHERE
+	REVENUE <> 0
