@@ -1,1 +1,25 @@
-Testing 123
+# 🛒 Movies Revenue Trends & Performance
+
+## 📊 Overview
+This project analyzes Movies over time to look into trends, compare budget & revenue performance, possible insight into ratings and revenue relationship, and a look at the top movies of all time or within the specified year.
+
+## 🛠 Tools Used
+- PostgreSQL (data querying & analysis)
+- Excel (data cleaning)
+- Tableau (data visualization)
+
+## 📈 Key Insights
+- Revenue has been rising consistently over time
+- Positive correlation with budget and revenue
+- Ratings did not have much of an affect on revenue
+
+## 📊 Dashboard
+View the interactive dashboard here:  
+👉 https://public.tableau.com/views/MoviesJoin_17768138750840/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+
+## 🖼 Dashboard Preview
+https://github.com/lamtran789/Walmart-Sales-Analysis1/blob/cbec509e6db48d7c5743d400f1825990808e0c20/Images/Dashboard.png.png
+
+## 📁 Project Structure
+- `/sql` → SQL queries for data exploration and analysis  
+- `/images` → dashboard screenshot
