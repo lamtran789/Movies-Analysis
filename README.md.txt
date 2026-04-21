@@ -18,7 +18,7 @@ View the interactive dashboard here:
 👉 https://public.tableau.com/views/MoviesJoin_17768138750840/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
 ## 🖼 Dashboard Preview
-https://github.com/lamtran789/Walmart-Sales-Analysis1/blob/cbec509e6db48d7c5743d400f1825990808e0c20/Images/Dashboard.png.png
+https://github.com/lamtran789/Movies-Analysis/blob/c48c6a68baba388f509852d2040d70bb781b8b20/Tableau/Movies%20Analysis%20Dashboard.png
 
 ## 📁 Project Structure
 - `/sql` → SQL queries for data exploration and analysis  
